@@ -17,6 +17,15 @@ struct ContentView: View {
   @State private var tipPercentage = 2
   private let students = ["Harry", "Hermione", "Ron"]
   private let tipPercentages = [10, 15, 20, 25, 0]
+  private var totalPerPerson: Double {
+    let peopleCount = Double(numberOfPeople + 2)
+    let tipSelection = Double(tipPercentages[tipPercentage])
+    let orderAmount = Double(checkAmount) ?? 0
+    let tipValue = orderAmount / 100 * tipSelection
+    let grandTotal = orderAmount + tipValue
+    let amountPerPersont = grandTotal / peopleCount
+    return amountPerPersont
+  }
   
   var body: some View {
     NavigationView {
@@ -43,10 +52,10 @@ struct ContentView: View {
           Text("Your name is \(name)")
         }
         
-        Section {
+        Section(header: Text("Amout per person")) {
           TextField("Amount", text: $checkAmount)
             .keyboardType(.decimalPad)
-          Text("$\(checkAmount)")
+          Text("$\(totalPerPerson, specifier: "%.2f")")
           Picker("Number of people", selection: $numberOfPeople) {
             ForEach(2..<100) {
               Text("\($0) people")
