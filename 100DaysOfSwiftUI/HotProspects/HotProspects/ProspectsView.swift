@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 enum FilterType {
   case none, contacted, uncontacted
@@ -14,26 +15,42 @@ enum FilterType {
 
 struct ProspectsView: View {
   @EnvironmentObject var prospects: Prospects
+  @State private var isShowingScanner = false
   var filteredProspects: [Prospect] {
     switch filter {
-      case .none:
-        return prospects.people
-      case .contacted:
-        return prospects.people.filter { $0.isContacted }
-      case .uncontacted:
-        return prospects.people.filter { !$0.isContacted }
+    case .none:
+      return prospects.people
+    case .contacted:
+      return prospects.people.filter { $0.isContacted }
+    case .uncontacted:
+      return prospects.people.filter { !$0.isContacted }
     }
   }
   
   let filter: FilterType
   var title: String {
     switch filter {
-      case .none:
-        return "Everyone"
-      case .contacted:
-        return "Contacted people"
-      case .uncontacted:
-        return "Uncontacted people"
+    case .none:
+      return "Everyone"
+    case .contacted:
+      return "Contacted people"
+    case .uncontacted:
+      return "Uncontacted people"
+    }
+  }
+  
+  func handleScan(result: Result<String, CodeScannerView.ScanError>) {
+    self.isShowingScanner = false
+    switch result {
+    case .success(let code):
+      let details = code.components(separatedBy: "\n")
+      guard details.count == 2 else { return }
+      let person = Prospect()
+      person.name = details[0]
+      person.emailAddress = details[1]
+      self.prospects.people.append(person)
+    case .failure(let error):
+      print("Scanning failed: \(error.localizedDescription)")
     }
   }
   
@@ -51,14 +68,14 @@ struct ProspectsView: View {
       }
       .navigationBarTitle(title)
       .navigationBarItems(trailing: Button(action: {
-        let prospect = Prospect()
-        prospect.name = "Bruce"
-        prospect.emailAddress = "keisme3.0@gmail.com"
-        self.prospects.people.append(prospect)
+        self.isShowingScanner = true
       }) {
         Image(systemName: "qrcode.viewfinder")
         Text("Scan")
       })
+        .sheet(isPresented: $isShowingScanner) {
+          CodeScannerView(codeTypes: [.qr], simulatedData: "Bruce\nkeisme3.0@gmail.com", completion: self.handleScan)
+      }
     }
   }
 }
