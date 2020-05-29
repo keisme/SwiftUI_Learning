@@ -11,11 +11,12 @@ import SwiftUI
 struct ContentView: View {
   @Environment(\.horizontalSizeClass) var sizeClass
   let resorts: [Resort] = Bundle.main.decode("resorts.json")
+  @ObservedObject var favorites = Favorites()
   
   var body: some View {
     NavigationView {
       List(resorts) { resort in
-        NavigationLink(destination: Text(resort.name)) {
+        NavigationLink(destination: ResortView(resort: resort)) {
           Image(resort.country)
             .resizable()
             .scaledToFill()
@@ -30,9 +31,41 @@ struct ContentView: View {
             Text("\(resort.runs) runs")
               .foregroundColor(.secondary)
           }
+          .layoutPriority(1)
+          
+          if self.favorites.contains(resort) {
+            Spacer()
+            Image(systemName: "heart.fill")
+              .foregroundColor(.red)
+          }
         }
       }
       .navigationBarTitle("Resorts")
+      
+      WelcomeView()
+    }
+  .environmentObject(favorites)
+  }
+}
+
+struct WelcomeView: View {
+  var body: some View {
+    VStack {
+      Text("Welcome to SnowSeeker!")
+        .font(.largeTitle)
+      
+      Text("Please select a resort from the left-hand menu; swipe from the left edge to show it.")
+        .foregroundColor(.secondary)
+    }
+  }
+}
+
+extension View {
+  func phoneOnlyStackNavigationView() -> some View {
+    if UIDevice.current.userInterfaceIdiom == .phone {
+      return AnyView(self.navigationViewStyle((StackNavigationViewStyle())))
+    } else {
+      return AnyView(self)
     }
   }
 }
