@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
       NavigationView {
         List {
-          NavigationLink("Publisher", destination: PublisherView())
+          NavigationLink("Convenience Publishers", destination: PublisherView())
         }
         .navigationBarTitle("CombineTutorial", displayMode: .inline)
       }
