@@ -17,6 +17,7 @@ struct ContentView: View {
         List {
           NavigationLink("Publisher", destination: PublisherView())
           NavigationLink("Subscriber", destination: SubscriberView())
+          NavigationLink("CustomSubscriberPublisher", destination: CustomSubscriberPublisherView())
         }
         .navigationBarTitle("CombineTutorial", displayMode: .inline)
       }
