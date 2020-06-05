@@ -73,7 +73,7 @@ struct PublisherView: View {
         }
         
         let deferredPublisher = Deferred<Future<Data, Error>> {
-          print("Deferred start")
+          print("Deferred start") 
           return Future<Data, Error> { (promise) in
             print("Future start")
             let request = URLRequest(url: URL(string: "https://douban.uieee.com/v2/movie/top250")!)
@@ -111,21 +111,6 @@ struct PublisherView: View {
         _ = publisher.sink(receiveCompletion: { print($0) }, receiveValue: { print($0) })
       default:
         break
-    }
-  }
-}
-
-struct GradientView: View {
-  let title: String
-  
-  var body: some View {
-    ZStack {
-      LinearGradient(gradient: Gradient(colors: [.red, .orange]), startPoint: .topLeading, endPoint: .bottomTrailing)
-        .cornerRadius(8)
-      
-      Text(title)
-        .foregroundColor(.white)
-        .font(.headline)
     }
   }
 }

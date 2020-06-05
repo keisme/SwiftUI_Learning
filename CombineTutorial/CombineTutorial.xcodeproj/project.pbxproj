@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F5292C5248903FD00975AD6 /* SubscriberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5292C4248903FD00975AD6 /* SubscriberView.swift */; };
+		4F5292C72489044200975AD6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5292C62489044200975AD6 /* GradientView.swift */; };
 		4FA6072C2487623400918C4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6072B2487623400918C4A /* AppDelegate.swift */; };
 		4FA6072E2487623400918C4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6072D2487623400918C4A /* SceneDelegate.swift */; };
 		4FA607302487623400918C4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6072F2487623400918C4A /* ContentView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F5292C4248903FD00975AD6 /* SubscriberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberView.swift; sourceTree = "<group>"; };
+		4F5292C62489044200975AD6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4FA607282487623400918C4A /* CombineTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA6072B2487623400918C4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FA6072D2487623400918C4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				4FA6072D2487623400918C4A /* SceneDelegate.swift */,
 				4FA6072F2487623400918C4A /* ContentView.swift */,
 				4FA6073F2487626600918C4A /* PublisherView.swift */,
+				4F5292C4248903FD00975AD6 /* SubscriberView.swift */,
+				4F5292C62489044200975AD6 /* GradientView.swift */,
 				4FA607312487623C00918C4A /* Assets.xcassets */,
 				4FA607362487623C00918C4A /* LaunchScreen.storyboard */,
 				4FA607392487623C00918C4A /* Info.plist */,
@@ -149,7 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F5292C5248903FD00975AD6 /* SubscriberView.swift in Sources */,
 				4FA6072C2487623400918C4A /* AppDelegate.swift in Sources */,
+				4F5292C72489044200975AD6 /* GradientView.swift in Sources */,
 				4FA6072E2487623400918C4A /* SceneDelegate.swift in Sources */,
 				4FA607302487623400918C4A /* ContentView.swift in Sources */,
 				4FA607402487626600918C4A /* PublisherView.swift in Sources */,
