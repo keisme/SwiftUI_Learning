@@ -13,7 +13,7 @@ struct MemoryGame<CardContent> {
   var cards: [Card]
   
   mutating func choose(card: Card) {
-    let chosenIndex: Int = self.cards.firstIndex(where: { $0.id == card.id })!
+    let chosenIndex: Int = self.cards.firstIndex(matching: card)
     self.cards[chosenIndex].isFaceUp = !self.cards[chosenIndex].isFaceUp
   }
   
