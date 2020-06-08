@@ -9,9 +9,13 @@
 import SwiftUI
 import Combine
 
+struct MovieModel: Decodable {
+  
+}
+
 struct CustomSubscriberPublisherView: View {
   
-  let items = ["IntSubscriber"]
+  let items = ["IntSubscriber", "DecodedDataTaskPublisher"]
   
   var body: some View {
     VStack {
@@ -30,6 +34,10 @@ struct CustomSubscriberPublisherView: View {
         let publisher = (1...6).publisher.print()
         let subscriber = IntSubscriber()
         publisher.subscribe(subscriber)
+      case 1:
+        let request = URLRequest(url: URL(string: "https://douban.uieee.com/v2/movie/top250")!)
+        let publisher: URLSession.DecodedDataTaskPublisher<MovieModel> = URLSession.shared.decodedDataTaskPublisher(for: request)
+        publisher.sink(receiveCompletion: { print($0) }, receiveValue: { print($0) }).store(in: &subscriptions)
       default:
         break
     }
@@ -60,38 +68,62 @@ final class IntSubscriber: Subscriber {
   }
 }
 
-//final class DataTaskSubscriber<Input: Decodable>: Subscriber {
-//
-//  typealias Failure = Error
-//
-//  func receive(subscription: Subscription) {
-//    print("Received subscription")
-//    subscription.request(.unlimited)
-//  }
-//
-//  func receive(_ input: Input) -> Subscribers.Demand {
-//    print("Received value: \(input)")
-//    return .none
-//  }
-//
-//  func receive(completion: Subscribers.Completion<Error>) {
-//    print("Received completion  \(completion)")
-//  }
-//
-//}
-//
-//struct DataTaskPublisher<Output: Decodable>: Publisher {
-//
-//  typealias Failure = Error
-//
-//  let urRequest: URLRequest
-//
-//  func receive<S>(subscriber: S) where S : Subscriber, Self.Failure == S.Failure, Self.Output == S.Input {
-//
-//  }
-//}
-
 // MARK: - Custom Publisher
+
+extension URLSession {
+  struct DecodedDataTaskPublisher<Output: Decodable>: Publisher {
+    typealias Failure = Error
+
+    let urlRequest: URLRequest
+    
+    func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
+      let subscription = DecodedDataTaskSubscription(urlRequest: urlRequest, subscriber: subscriber)
+      subscriber.receive(subscription: subscription)
+    }
+  }
+
+  func decodedDataTaskPublisher<Output: Decodable>(for urlRequest: URLRequest) -> DecodedDataTaskPublisher<Output> {
+    return DecodedDataTaskPublisher<Output>(urlRequest: urlRequest)
+  }
+}
+
+extension URLSession.DecodedDataTaskPublisher {
+  class DecodedDataTaskSubscription<Output: Decodable, S: Subscriber>: Subscription
+    where S.Input == Output, S.Failure == Error {
+
+    private let urlRequest: URLRequest
+    private var subscriber: S?
+
+    init(urlRequest: URLRequest, subscriber: S) {
+      self.urlRequest = urlRequest
+      self.subscriber = subscriber
+    }
+
+    func request(_ demand: Subscribers.Demand) {
+      if demand > 0 {
+        URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
+          defer { self?.cancel() }
+
+          if let data = data {
+            do {
+              let result = try JSONDecoder().decode(Output.self, from: data)
+              self?.subscriber?.receive(result)
+              self?.subscriber?.receive(completion: .finished)
+            } catch {
+              self?.subscriber?.receive(completion: .failure(error))
+            }
+          } else if let error = error {
+            self?.subscriber?.receive(completion: .failure(error))
+          }
+        }.resume()
+      }
+    }
+
+    func cancel() {
+      subscriber = nil
+    }
+  }
+}
 
 struct CustomSubscriberPublisherView_Previews: PreviewProvider {
   static var previews: some View {
