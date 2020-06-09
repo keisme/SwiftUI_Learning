@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F4A58B1248F2F6600BDBA33 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A58B0248F2F6600BDBA33 /* SubjectView.swift */; };
 		4F5292C5248903FD00975AD6 /* SubscriberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5292C4248903FD00975AD6 /* SubscriberView.swift */; };
 		4F5292C72489044200975AD6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5292C62489044200975AD6 /* GradientView.swift */; };
 		4F5459BB248A466900FEFA2B /* CustomSubscriberPublisherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5459BA248A466900FEFA2B /* CustomSubscriberPublisherView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F4A58B0248F2F6600BDBA33 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		4F5292C4248903FD00975AD6 /* SubscriberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberView.swift; sourceTree = "<group>"; };
 		4F5292C62489044200975AD6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4F5459BA248A466900FEFA2B /* CustomSubscriberPublisherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriberPublisherView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				4FA6073F2487626600918C4A /* PublisherView.swift */,
 				4F5292C4248903FD00975AD6 /* SubscriberView.swift */,
 				4F5459BA248A466900FEFA2B /* CustomSubscriberPublisherView.swift */,
+				4F4A58B0248F2F6600BDBA33 /* SubjectView.swift */,
 				4F5292C62489044200975AD6 /* GradientView.swift */,
 				4FA607312487623C00918C4A /* Assets.xcassets */,
 				4FA607362487623C00918C4A /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 				4FA6072E2487623400918C4A /* SceneDelegate.swift in Sources */,
 				4FA607302487623400918C4A /* ContentView.swift in Sources */,
 				4FA607402487626600918C4A /* PublisherView.swift in Sources */,
+				4F4A58B1248F2F6600BDBA33 /* SubjectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
