@@ -13,6 +13,7 @@ struct ContentView: View {
     NavigationView {
       List {
         NavigationLink("Repeat", destination: Repeat())
+        NavigationLink("Rotation3DEffect", destination: Rotation3DEffect())
       }
       .navigationBarTitle("Animation")
     }
