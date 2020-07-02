@@ -17,7 +17,7 @@ struct Repeat: View {
       Button("Tap Me") {
         self.animationAmount += 1
       }
-      .padding(50)
+      .frame(width: 100, height: 100)
       .background(Color.red)
       .foregroundColor(.white)
       .clipShape(Circle())
