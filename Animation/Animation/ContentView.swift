@@ -14,6 +14,7 @@ struct ContentView: View {
       List {
         NavigationLink("Repeat", destination: Repeat())
         NavigationLink("Rotation3DEffect", destination: Rotation3DEffect())
+        NavigationLink("PathAnimation", destination: PathAnimation(height: 100, width: 200))
       }
       .navigationBarTitle("Animation")
     }
