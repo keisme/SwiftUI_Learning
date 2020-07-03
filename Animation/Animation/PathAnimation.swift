@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct Triangle: Shape {
-  var percent: CGFloat
   
   func path(in rect: CGRect) -> Path {
     var path = Path()
@@ -21,39 +20,77 @@ struct Triangle: Shape {
   }
 }
 
-struct PathAnimation: View {
-//  @State private var percent: CGFloat
-//
-//  var body: some View {
-//    ScrollView {
-//      Triangle(percent: percent)
-//        .onAppear {
-//          self.percent = 1
-//      }
-//    }
-//  }
+struct RingProgress: Shape {
   
+  var progress: CGFloat
+  
+  var animatableData: CGFloat {
+    get { progress }
+    set { progress = newValue }
+  }
+  
+  func path(in rect: CGRect) -> Path {
+    var path = Path()
+    path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: 70, startAngle: .degrees(0), endAngle: .degrees(360.0 * Double(progress)), clockwise: false)
+    return path
+  }
+}
 
-  var height: CGFloat
-  var width: CGFloat
+struct Loading: Shape {
+  
+  var startAngle: Double = 0
+  
+  var animatableData: Double {
+    get { startAngle }
+    set { startAngle = newValue }
+  }
+  
+  func path(in rect: CGRect) -> Path {
+    var path = Path()
+    path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: 18, startAngle: .degrees(startAngle), endAngle: .degrees(60 + startAngle), clockwise: false)
+    return path
+  }
+}
 
-  @State private var percentage: CGFloat = .zero
+struct PathAnimation: View {
+  @State private var percent: CGFloat = .zero
+  @State private var progress: CGFloat = .zero
+  @State private var startAngle: Double = .zero
   
   var body: some View {
-
-      // ZStack {         // as for me, looks better w/o stack which tighten path
-          Path { path in
-              path.move(to: CGPoint(x: 0, y: height/2))
-              path.addLine(to: CGPoint(x: width/2, y: height))
-              path.addLine(to: CGPoint(x: width, y: 0))
-          }
-          .trim(from: 0, to: percentage) // << breaks path by parts, animatable
-          .stroke(Color.black, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
-          .animation(.easeOut(duration: 2.0)) // << animate
-          .onAppear {
-              self.percentage = 1.0 // << activates animation for 0 to the end
-          }
-
-      //}
+    VStack {
+      Triangle()
+        .trim(from: 0, to: percent)
+        .stroke(Color.blue, style: .init(lineWidth: 8, lineCap: .round, lineJoin: .round))
+        .animation(.easeInOut(duration: 3))
+        .onAppear {
+          self.percent = 1
+      }
+      .frame(width: 147, height: 147)
+      
+      ZStack {
+        Color.black
+        
+        RingProgress(progress: progress)
+          .stroke(Color.blue, style: .init(lineWidth: 8, lineCap: .round, lineJoin: .round))
+          .animation(.default)
+        
+        Text("Tap Me")
+          .foregroundColor(.white)
+      }
+      .onTapGesture {
+        self.progress += 0.1
+      }
+      
+      Loading(startAngle: startAngle)
+        .stroke(Color.blue, style: .init(lineWidth: 3, lineCap: .round, lineJoin: .round))
+        .animation(
+          Animation.linear(duration: 1)
+            .repeatForever(autoreverses: false)
+      )
+        .onAppear {
+          self.startAngle = 360
+      }
+    }
   }
 }
