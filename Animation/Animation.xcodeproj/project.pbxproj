@@ -20,6 +20,7 @@
 		4F57076D24ADCBAC00D95754 /* Rotation3DEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57076C24ADCBAC00D95754 /* Rotation3DEffect.swift */; };
 		4F57DD3424ACB0860016EAF1 /* Repeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57DD3324ACB0860016EAF1 /* Repeat.swift */; };
 		4F589AE424ADDFA500D14C06 /* PathAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F589AE324ADDFA500D14C06 /* PathAnimation.swift */; };
+		4F5EAE9924B42733007F7CED /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EAE9824B42733007F7CED /* CustomTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4F57076C24ADCBAC00D95754 /* Rotation3DEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation3DEffect.swift; sourceTree = "<group>"; };
 		4F57DD3324ACB0860016EAF1 /* Repeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeat.swift; sourceTree = "<group>"; };
 		4F589AE324ADDFA500D14C06 /* PathAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathAnimation.swift; sourceTree = "<group>"; };
+		4F5EAE9824B42733007F7CED /* CustomTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				4F57DD3324ACB0860016EAF1 /* Repeat.swift */,
 				4F57076C24ADCBAC00D95754 /* Rotation3DEffect.swift */,
 				4F589AE324ADDFA500D14C06 /* PathAnimation.swift */,
+				4F5EAE9824B42733007F7CED /* CustomTransition.swift */,
 				4F473D9A24A99F6E0053869A /* Assets.xcassets */,
 				4F473D9F24A99F6E0053869A /* LaunchScreen.storyboard */,
 				4F473DA224A99F6E0053869A /* Info.plist */,
@@ -180,6 +183,7 @@
 				4F473DB224A9A5230053869A /* Landmark.swift in Sources */,
 				4F473DB124A9A5230053869A /* Hike.swift in Sources */,
 				4F473D9524A99F680053869A /* AppDelegate.swift in Sources */,
+				4F5EAE9924B42733007F7CED /* CustomTransition.swift in Sources */,
 				4F57076D24ADCBAC00D95754 /* Rotation3DEffect.swift in Sources */,
 				4F473D9724A99F680053869A /* SceneDelegate.swift in Sources */,
 				4F57DD3424ACB0860016EAF1 /* Repeat.swift in Sources */,

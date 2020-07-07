@@ -15,6 +15,7 @@ struct ContentView: View {
         NavigationLink("Repeat", destination: Repeat())
         NavigationLink("Rotation3DEffect", destination: Rotation3DEffect())
         NavigationLink("PathAnimation", destination: PathAnimation())
+        NavigationLink("CustomTransition", destination: CustomTransition())
       }
       .navigationBarTitle("Animation")
     }
