@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F55227024C7DE2800C957C2 /* StateObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F55226F24C7DE2800C957C2 /* StateObjectView.swift */; };
 		4F5B210E24753C0E0003243E /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5B210D24753C0E0003243E /* StateView.swift */; };
 		4F5B21102475427D0003243E /* ObservedObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5B210F2475427D0003243E /* ObservedObjectView.swift */; };
 		4F5B2112247670FE0003243E /* EnvironmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5B2111247670FE0003243E /* EnvironmentView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F55226F24C7DE2800C957C2 /* StateObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObjectView.swift; sourceTree = "<group>"; };
 		4F5B210D24753C0E0003243E /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
 		4F5B210F2475427D0003243E /* ObservedObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedObjectView.swift; sourceTree = "<group>"; };
 		4F5B2111247670FE0003243E /* EnvironmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				4F5B210F2475427D0003243E /* ObservedObjectView.swift */,
 				4F5B2111247670FE0003243E /* EnvironmentView.swift */,
 				4F7F7D0B2477D90A001BCAA2 /* EnvironmentObjectView.swift */,
+				4F55226F24C7DE2800C957C2 /* StateObjectView.swift */,
 				4FF9AF542474DA8400034D46 /* Assets.xcassets */,
 				4FF9AF592474DA8500034D46 /* LaunchScreen.storyboard */,
 				4FF9AF5C2474DA8500034D46 /* Info.plist */,
@@ -161,6 +164,7 @@
 				4F7F7D0C2477D90A001BCAA2 /* EnvironmentObjectView.swift in Sources */,
 				4F5B21102475427D0003243E /* ObservedObjectView.swift in Sources */,
 				4FF9AF4F2474DA8000034D46 /* AppDelegate.swift in Sources */,
+				4F55227024C7DE2800C957C2 /* StateObjectView.swift in Sources */,
 				4FF9AF512474DA8000034D46 /* SceneDelegate.swift in Sources */,
 				4F5B210E24753C0E0003243E /* StateView.swift in Sources */,
 				4F5B2112247670FE0003243E /* EnvironmentView.swift in Sources */,
@@ -232,7 +236,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -286,7 +290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
