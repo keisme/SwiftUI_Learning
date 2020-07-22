@@ -43,6 +43,7 @@ struct LazyVStackView: View {
         }
       }
       .edgesIgnoringSafeArea(.all)
+      .navigationTitle("LazyVStack")
     }
   }
 }

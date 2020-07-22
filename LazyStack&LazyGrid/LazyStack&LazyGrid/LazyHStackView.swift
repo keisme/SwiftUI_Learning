@@ -34,6 +34,7 @@ struct LazyHStackView: View {
         }
       }
     }
+    .navigationTitle("LazyHStack")
   }
 }
 

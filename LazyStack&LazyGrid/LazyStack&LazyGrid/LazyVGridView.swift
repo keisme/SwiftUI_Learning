@@ -43,6 +43,7 @@ struct LazyVGridView: View {
       }
       .frame(maxHeight: .infinity)
     }
+    .navigationTitle("LazyVGrid")
   }
 }
 
