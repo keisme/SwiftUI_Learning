@@ -14,6 +14,8 @@ struct LazyHStackView: View {
         LazyHStack {
           ForEach(1...100, id: \.self) { count in
             Text("Placeholder \(count)")
+              .foregroundColor(Color.white)
+              .background(Color.blue)
           }
         }
       }
@@ -21,10 +23,12 @@ struct LazyHStackView: View {
       ScrollView(.horizontal, showsIndicators: false) {
         LazyHStack(alignment: .center, spacing: 20, pinnedViews: [.sectionHeaders, .sectionFooters]) {
           Section(
-            header: Text("Header").background(Color.white),
-            footer: Text("Footer").background(Color.white)) {
+            header: Text("Header").background(Color.orange),
+            footer: Text("Footer").background(Color.orange)) {
             ForEach(1...100, id: \.self) { count in
               Text("Placeholder \(count)")
+                .foregroundColor(Color.white)
+                .background(Color.blue)
             }
           }
         }

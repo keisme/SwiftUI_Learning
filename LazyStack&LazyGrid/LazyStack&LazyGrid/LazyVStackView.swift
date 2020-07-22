@@ -12,9 +12,11 @@ struct LazyVStackView: View {
     
     VStack(spacing: 20) {
       ScrollView {
-        LazyVStack {
+        LazyVStack(spacing: 20) {
           ForEach(1...100, id: \.self) { count in
             Text("Placeholder \(count)")
+              .foregroundColor(Color.white)
+              .background(Color.blue)
           }
         }
       }
@@ -25,13 +27,17 @@ struct LazyVStackView: View {
         LazyVStack(alignment: .center, spacing: 20, pinnedViews: [.sectionHeaders, .sectionFooters]) {
           Section(
             header: Text("Header")
+              .padding()
               .frame(maxWidth: .infinity)
-              .background(Color.white),
+              .background(Color.orange),
             footer: Text("Footer")
+              .padding()
               .frame(maxWidth: .infinity)
-              .background(Color.white)) {
+              .background(Color.orange)) {
             ForEach(1...100, id: \.self) { count in
               Text("Placeholder \(count)")
+                .foregroundColor(Color.white)
+                .background(Color.blue)
             }
           }
         }
