@@ -16,6 +16,7 @@ struct ContentView: View {
         NavigationLink("Rotation3DEffect", destination: Rotation3DEffect())
         NavigationLink("PathAnimation", destination: PathAnimation())
         NavigationLink("CustomTransition", destination: CustomTransition())
+        NavigationLink("MatchedGeometryEffect", destination: MatchedGeometryEffect())
       }
       .navigationBarTitle("Animation")
     }
