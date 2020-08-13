@@ -22,10 +22,11 @@ struct Repeat: View {
       .foregroundColor(.white)
       .clipShape(Circle())
       .scaleEffect(animationAmount)
-      .animation(
-        Animation.easeIn(duration: 1)
-          .repeatForever()
-      )
+      .onAppear {
+        withAnimation(Animation.easeInOut(duration: 1).repeatForever()) {
+          self.animationAmount = 1.5
+        }
+      }
       
       Spacer()
       
@@ -37,17 +38,15 @@ struct Repeat: View {
       .foregroundColor(.white)
       .clipShape(Circle())
       .overlay(
-          Circle()
-              .stroke(Color.red)
-              .scaleEffect(animationAmount)
-              .opacity(Double(2 - animationAmount))
-              .animation(
-                  Animation.easeOut(duration: 1)
-                      .repeatForever(autoreverses: false)
-              )
+        Circle()
+          .stroke(Color.red)
+          .scaleEffect(animationAmount)
+          .opacity(Double(2 - animationAmount))
       )
       .onAppear {
+        withAnimation(Animation.easeOut(duration: 1).repeatForever(autoreverses: false)) {
           self.animationAmount = 2
+        }
       }
     }
   }

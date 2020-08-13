@@ -17,6 +17,7 @@
 		4F473DB024A9A5230053869A /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F473DAC24A9A5230053869A /* UserData.swift */; };
 		4F473DB124A9A5230053869A /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F473DAD24A9A5230053869A /* Hike.swift */; };
 		4F473DB224A9A5230053869A /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F473DAE24A9A5230053869A /* Landmark.swift */; };
+		4F54992B24E4F09400AB4B06 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F54992A24E4F09400AB4B06 /* Checkbox.swift */; };
 		4F57076D24ADCBAC00D95754 /* Rotation3DEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57076C24ADCBAC00D95754 /* Rotation3DEffect.swift */; };
 		4F57DD3424ACB0860016EAF1 /* Repeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57DD3324ACB0860016EAF1 /* Repeat.swift */; };
 		4F589AE424ADDFA500D14C06 /* PathAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F589AE324ADDFA500D14C06 /* PathAnimation.swift */; };
@@ -37,6 +38,7 @@
 		4F473DAC24A9A5230053869A /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		4F473DAD24A9A5230053869A /* Hike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = "<group>"; };
 		4F473DAE24A9A5230053869A /* Landmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		4F54992A24E4F09400AB4B06 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		4F57076C24ADCBAC00D95754 /* Rotation3DEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation3DEffect.swift; sourceTree = "<group>"; };
 		4F57DD3324ACB0860016EAF1 /* Repeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeat.swift; sourceTree = "<group>"; };
 		4F589AE324ADDFA500D14C06 /* PathAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathAnimation.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				4F589AE324ADDFA500D14C06 /* PathAnimation.swift */,
 				4F5EAE9824B42733007F7CED /* CustomTransition.swift */,
 				4FC0515724DA4CE300487161 /* MatchedGeometryEffect.swift */,
+				4F54992A24E4F09400AB4B06 /* Checkbox.swift */,
 				4F473D9A24A99F6E0053869A /* Assets.xcassets */,
 				4F473D9F24A99F6E0053869A /* LaunchScreen.storyboard */,
 				4F473DA224A99F6E0053869A /* Info.plist */,
@@ -191,6 +194,7 @@
 				4F473D9724A99F680053869A /* SceneDelegate.swift in Sources */,
 				4F57DD3424ACB0860016EAF1 /* Repeat.swift in Sources */,
 				4FC0515824DA4CE300487161 /* MatchedGeometryEffect.swift in Sources */,
+				4F54992B24E4F09400AB4B06 /* Checkbox.swift in Sources */,
 				4F589AE424ADDFA500D14C06 /* PathAnimation.swift in Sources */,
 				4F473D9924A99F680053869A /* ContentView.swift in Sources */,
 			);

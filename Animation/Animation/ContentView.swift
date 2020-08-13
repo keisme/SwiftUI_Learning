@@ -12,12 +12,19 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       List {
-        NavigationLink("Repeat", destination: Repeat())
-        NavigationLink("Rotation3DEffect", destination: Rotation3DEffect())
-        NavigationLink("PathAnimation", destination: PathAnimation())
-        NavigationLink("CustomTransition", destination: CustomTransition())
-        NavigationLink("MatchedGeometryEffect", destination: MatchedGeometryEffect())
+        Section(header: Text("Type")) {
+          NavigationLink("Repeat", destination: Repeat())
+          NavigationLink("Rotation3DEffect", destination: Rotation3DEffect())
+          NavigationLink("PathAnimation", destination: PathAnimation())
+          NavigationLink("CustomTransition", destination: CustomTransition())
+          NavigationLink("MatchedGeometryEffect", destination: MatchedGeometryEffect())
+        }
+        
+        Section(header: Text("Example")) {
+          NavigationLink("Checkbox", destination: Checkbox())
+        }
       }
+      .listStyle(InsetGroupedListStyle())
       .navigationBarTitle("Animation")
     }
   }

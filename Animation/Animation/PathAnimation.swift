@@ -62,11 +62,12 @@ struct PathAnimation: View {
       Triangle()
         .trim(from: 0, to: percent)
         .stroke(Color.blue, style: .init(lineWidth: 8, lineCap: .round, lineJoin: .round))
-        .animation(.easeInOut(duration: 3))
+        .frame(width: 147, height: 147)
         .onAppear {
-          self.percent = 1
-      }
-      .frame(width: 147, height: 147)
+          withAnimation(.easeInOut(duration: 3)) {
+            self.percent = 1
+          }
+        }
       
       ZStack {
         Color.black
@@ -84,13 +85,11 @@ struct PathAnimation: View {
       
       Loading(startAngle: startAngle)
         .stroke(Color.blue, style: .init(lineWidth: 3, lineCap: .round, lineJoin: .round))
-        .animation(
-          Animation.linear(duration: 1)
-            .repeatForever(autoreverses: false)
-      )
         .onAppear {
-          self.startAngle = 360
-      }
+          withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
+            self.startAngle = 360
+          }
+        }
     }
   }
 }
