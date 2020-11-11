@@ -23,6 +23,7 @@ struct ContentView: View {
         NavigationLink("@ObservedObject、@Published、ObservableObject", destination: ObservedObjectView())
         NavigationLink("@Environment、EnvironmentValues", destination: EnvironmentView())
         NavigationLink("@EnvironmentObjectView", destination: EnvironmentObjectView())
+        NavigationLink("@StateObjectView", destination: StateObjectView())
       }
       .navigationBarTitle("Example", displayMode: .automatic)
     }
