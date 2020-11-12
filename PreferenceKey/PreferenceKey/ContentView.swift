@@ -8,61 +8,51 @@
 import SwiftUI
 
 struct ContentView : View {
-  @State private var numberWidth = CGFloat.zero
   
-  var numbers: [String] {
-    var ans = [String]()
-    for v in [3, 13, 53, 93, 133] {
-      ans.append(String(Int(arc4random_uniform(10000000))*v))
-    }
-    return ans
-  }
+  @State private var email = ""
+  @State private var password = ""
+  @State private var textWidth: CGFloat?
   
   var body: some View {
     Form {
-      ForEach(numbers, id: \.self) { number in
-        RowView(number: number)
+      HStack {
+        Text("电子邮箱")
+          .frame(width: textWidth, alignment: .leading)
+          .background(TextBackgroundView())
+        TextField("请输入", text: $email)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+      }
+      
+      HStack {
+        Text("密码")
+          .frame(width: textWidth, alignment: .leading)
+          .background(TextBackgroundView())
+        TextField("请输入", text: $email)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
       }
     }
-    .onPreferenceChange(NumberWidthPreferenceKey.self) { (value) in
+    .onPreferenceChange(TextWidthPreferenceKey.self) { (value) in
       print(value)
-      numberWidth = value
-    }
-    .onTapGesture {
-      print(numberWidth)
+      textWidth = value.max()
     }
   }
 }
 
-struct RowView: View {
-  var number: String
-  
-  var body: some View {
-    HStack {
-      Text(number)
-        .background(NumberBackgroundView())
-        
-      Text("xxx")
-        .background(Color.orange)
-    }
-  }
-}
-
-struct NumberBackgroundView: View {
+struct TextBackgroundView: View {
   var body: some View {
     GeometryReader { gr in
       Rectangle()
-        .fill(Color.blue)
-        .preference(key: NumberWidthPreferenceKey.self,
-                    value: gr.size.width)
+        .fill(Color.clear)
+        .preference(key: TextWidthPreferenceKey.self,
+                    value: [gr.size.width])
     }
   }
 }
 
-struct NumberWidthPreferenceKey: PreferenceKey {
-  static var defaultValue: CGFloat = .zero
-  
-  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-    value = max(value, nextValue())
+struct TextWidthPreferenceKey: PreferenceKey {
+  static var defaultValue: [CGFloat] = []
+
+  static func reduce(value: inout [CGFloat], nextValue: () -> [CGFloat]) {
+    value.append(contentsOf: nextValue())
   }
 }
